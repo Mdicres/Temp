@@ -1,0 +1,39 @@
+---
+title: "Adv Lab 1"
+author: "Maria Di Cresce"
+date: "2024-10-24"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
+ggplot() +
+    geom_sf(data =boulder, aes(color=Hydro_dis),
+    fill = NA, alpha = .2) +
+  scale_colour_gradientn(colours = terrain.colors(10)) +  
+  theme_bw()
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+boulder %>%
+  filter(DB ==  'Pano' | DB == 'Flickr') %>%
+  ggplot(aes(x=DB, y=Hydro_dis)) + 
+  geom_boxplot()
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
